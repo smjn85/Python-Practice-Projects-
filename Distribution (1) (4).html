@@ -1,0 +1,738 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+
+  <div class="border-box-sizing">
+    <div class="container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Assignment 4<a rel="noopener" class="anchor-link" href="#Assignment-4">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#import libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">csv</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#load dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\smjn0\OneDrive\Documents\SQL1202\youtube_dataset.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>web-scraper-order</th>
+      <th>web-scraper-start-url</th>
+      <th>userID</th>
+      <th>userID-href</th>
+      <th>name</th>
+      <th>uploads</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+      <th>country</th>
+      <th>channeltype</th>
+      <th>usercreated</th>
+      <th>grade</th>
+      <th>YouTube_Link</th>
+      <th>YouTube_Link-href</th>
+      <th>TwitterHandle</th>
+      <th>TwitterHandle-href</th>
+      <th>InstagramHandle</th>
+      <th>InstagramHandle-href</th>
+      <th>MonthlyEarnings</th>
+      <th>YearlyEarnings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1553043067-5148</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>PewDiePie</td>
+      <td>https://socialblade.com/youtube/c/pewdiepie</td>
+      <td>PewDiePie</td>
+      <td>3779</td>
+      <td>90210848</td>
+      <td>20772365682</td>
+      <td>US</td>
+      <td>Entertainment</td>
+      <td>Apr 29th, 2010</td>
+      <td>A</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UC-lHJZR3Gqxm24_Vd...</td>
+      <td>NaN</td>
+      <td>https://twitter.com/pewdiepie</td>
+      <td>NaN</td>
+      <td>https://instagram.com/pewdiepie</td>
+      <td>€66.9K - €1.1M</td>
+      <td>€802.3K - €12.8M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1553043063-5147</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>T-Series</td>
+      <td>https://socialblade.com/youtube/c/tseriesmusic</td>
+      <td>T-Series</td>
+      <td>13218</td>
+      <td>90194329</td>
+      <td>65092058996</td>
+      <td>IN</td>
+      <td>Music</td>
+      <td>Mar 13th, 2006</td>
+      <td>A++</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCq-Fj5jknLsUf-MWS...</td>
+      <td>NaN</td>
+      <td>https://instagram.com/tseries.official</td>
+      <td>NaN</td>
+      <td>https://plus.google.com/115156822320080163368</td>
+      <td>€635.6K - €10.2M</td>
+      <td>€7.6M - €122M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1553043059-5146</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Gaming</td>
+      <td>https://socialblade.com/youtube/channel/UCOpNc...</td>
+      <td>Gaming</td>
+      <td>0</td>
+      <td>81888222</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Games</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCOpNcN46UbXVtpKMr...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1553043055-5145</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>YouTube Movies</td>
+      <td>https://socialblade.com/youtube/channel/UClgRk...</td>
+      <td>YouTube Movies</td>
+      <td>0</td>
+      <td>77413743</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Film</td>
+      <td>Jun 10th, 2015</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UClgRkhTL3_hImCAmd...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1553043051-5144</td>
+      <td>https://socialblade.com/youtube/top/5000/mosts...</td>
+      <td>Sports</td>
+      <td>https://socialblade.com/youtube/channel/UCEgdi...</td>
+      <td>Sports</td>
+      <td>0</td>
+      <td>75622870</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>Sports</td>
+      <td>Dec 15th, 2013</td>
+      <td>D-</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>https://youtube.com/channel/UCEgdi0XIXXZ-qJOFP...</td>
+      <td>€0 - €0</td>
+      <td>€0 - €0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#select first 1000 rows</span>
+<span class="n">newdf</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">newdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">newdf</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>uploads</th>
+      <th>subscribers</th>
+      <th>videoviews</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1000.000000</td>
+      <td>1.000000e+03</td>
+      <td>1.000000e+03</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2994.369000</td>
+      <td>9.719333e+06</td>
+      <td>2.866785e+09</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>12090.600961</td>
+      <td>7.999606e+06</td>
+      <td>4.017240e+09</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>4.711742e+06</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>132.000000</td>
+      <td>5.585384e+06</td>
+      <td>7.983074e+08</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>417.000000</td>
+      <td>7.155415e+06</td>
+      <td>1.685415e+09</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1487.750000</td>
+      <td>1.077764e+07</td>
+      <td>3.439108e+09</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>144679.000000</td>
+      <td>9.021085e+07</td>
+      <td>6.509206e+10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Calculate Relative Frequency<a rel="noopener" class="anchor-link" href="#Calculate-Relative-Frequency">&#182;</a></h1><p>N= Number of rows, 
+f= count of a channeltype,<br/>
+Relative frequency = f/n</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">newdf</span><span class="p">[</span><span class="s1">&#39;channeltype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Entertainment    284
+Music            240
+Games            115
+Comedy            76
+People            72
+Howto             49
+Film              36
+Education         30
+Tech              19
+News              17
+Sports            17
+Autos              3
+Animals            2
+Travel             1
+Nonprofit          1
+Name: channeltype, dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">N</span><span class="o">=</span> <span class="mi">1000</span>
+<span class="n">relf</span><span class="o">=</span> <span class="n">f</span><span class="o">/</span><span class="n">N</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">relf</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Entertainment    0.284
+Music            0.240
+Games            0.115
+Comedy           0.076
+People           0.072
+Howto            0.049
+Film             0.036
+Education        0.030
+Tech             0.019
+News             0.017
+Sports           0.017
+Autos            0.003
+Animals          0.002
+Travel           0.001
+Nonprofit        0.001
+Name: channeltype, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">relf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Distribution of Channel Type&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a80d91f490&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">relf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;pie&quot;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Distribution of Channel Type&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a80e093a60&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">relf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a80e126970&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">relf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a80e1a0370&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1>Combining all the steps above in a single function<a rel="noopener" class="anchor-link" href="#Combining-all-the-steps-above-in-a-single-function">&#182;</a></h1><p>Step 1- Select rows 
+,  Step 2 - calculate frequency
+,  Step 3 - Calculate relative frequency
+,  Step 4 - Plot</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">channeltype</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(((</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])[</span><span class="s1">&#39;channeltype&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;bar&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">channeltype</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a80e201ca0&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea">
+<img src="javascript://"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">newdf</span> <span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">newdf</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;C:\Users\smjn0\OneDrive\Documents\SQL1202\assignment_4.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&#160;[&#160;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+
+ 
+
+
+
+<script type="text/javascript" src="/d2l/common/math/MathML.js?v=20.20.11.25666-65 "></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() { D2LMathML.DesktopInit('https://s.brightspace.com/lib/mathjax/2.7.4/MathJax.js?config=MML_HTMLorMML','https://s.brightspace.com/lib/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML','130'); });</script></body></html>
